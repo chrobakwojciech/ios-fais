@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct CategoryList: View {
+struct CategoryListView: View {
     var body: some View {
         List(categories) { category in
-            CategoryRow(category: category)
+            CategoryRowView(category: category)
         }
         
     }
@@ -18,6 +18,6 @@ struct CategoryList: View {
 
 struct CategoryList_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryList()
+        CategoryListView()
     }
 }

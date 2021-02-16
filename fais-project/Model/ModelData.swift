@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+var products: [Product] = load("products.json")
 var categories: [Category] = load("categories.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
