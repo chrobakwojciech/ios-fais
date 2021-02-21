@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProductListView: View {
+    var _products: [Product]
+    
     var body: some View {
-        List(products) { product in
+        List(_products) { product in
             ProductRowView(product: product)
         }
         
@@ -18,6 +20,6 @@ struct ProductListView: View {
 
 struct ProductList_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView()
+        ProductListView(_products: products)
     }
 }

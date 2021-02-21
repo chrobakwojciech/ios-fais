@@ -9,8 +9,15 @@ import SwiftUI
 
 struct CategoryListView: View {
     var body: some View {
-        List(categories) { category in
-            CategoryRowView(category: category)
+        NavigationView {
+            List(categories) { category in
+                NavigationLink(destination: CategoryView(category: category)) {
+                    CategoryRowView(category: category)
+                }
+                
+            }
+            .navigationTitle("Categories")
+
         }
         
     }
