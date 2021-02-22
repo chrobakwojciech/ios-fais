@@ -9,14 +9,16 @@ import SwiftUI
 
 struct CategoryView: View {
     var categoryProducts: [Product]
+    var category: Category
 
     init(category: Category) {
-        categoryProducts = products.filter({$0.categoryId == category.id
+        self.category = category
+        self.categoryProducts = products.filter({$0.categoryId == category.id
         })
     }
     
     var body: some View {
-        ProductListView(_products: categoryProducts)
+        ProductListView(products: categoryProducts).navigationBarTitle(category.name)
             
     }
 }
@@ -24,6 +26,5 @@ struct CategoryView: View {
 struct Category_Previews: PreviewProvider {
     static var previews: some View {
         CategoryView(category: categories[0])
-        
     }
 }

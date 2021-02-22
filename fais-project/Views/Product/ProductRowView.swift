@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ProductRowView: View {
     var product: Product
-    
+
     var body: some View {
         Text(product.name)
     }
+    
 }
 
 struct ProductRow_Previews: PreviewProvider {
