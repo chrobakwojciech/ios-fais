@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CategoryView: View {
+    @State private var isBasketOpen: Bool = false
+    
     var categoryProducts: [Product]
     var category: Category
 
@@ -19,6 +21,15 @@ struct CategoryView: View {
     
     var body: some View {
         ProductListView(products: categoryProducts).navigationBarTitle(category.name)
+        
+            .toolbar() {
+                Button("Basket") {
+                    isBasketOpen = true
+                }
+                .sheet(isPresented: $isBasketOpen) {
+                    BasketView(isOpen: $isBasketOpen)
+                }
+            }
             
     }
 }

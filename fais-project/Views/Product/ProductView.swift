@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProductView: View {
+    @State private var isBasketOpen: Bool = false
+    
     @EnvironmentObject var basket: Basket
     @State private var quantity = 1
     
@@ -29,10 +31,15 @@ struct ProductView: View {
             }
             Button(action: {
                 basket.addProduct(product: product, quantity: quantity)
+                isBasketOpen = true
             }, label: {
                 Text("Add to basket")
             })
+            .sheet(isPresented: $isBasketOpen) {
+                BasketView(isOpen: $isBasketOpen)
+            }
         }
+        
             
     }
 }

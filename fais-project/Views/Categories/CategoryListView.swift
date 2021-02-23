@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct CategoryListView: View {
+    @EnvironmentObject var basket: Basket
+    @State private var isBasketOpen: Bool = false
+    
+    
     var body: some View {
         NavigationView {
             List(categories) { category in
@@ -17,6 +21,14 @@ struct CategoryListView: View {
                 
             }
             .navigationTitle("Categories")
+            .toolbar() {
+                Button("Basket") {
+                    isBasketOpen = true
+                }
+                .sheet(isPresented: $isBasketOpen) {
+                    BasketView(isOpen: $isBasketOpen)
+                }
+            }
 
         }
         
