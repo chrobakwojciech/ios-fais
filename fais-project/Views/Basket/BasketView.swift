@@ -14,10 +14,21 @@ struct BasketView: View {
     
 
     var body: some View {
-        Text("ASF")
+        Text("Basket")
+        List() {
+            ForEach(basket.basketProducts, id: \.self) { product in
+                ProductRowView(product: product)
+            }
+            .onDelete(perform: removeRows)
+        }
+
         Button("CLOSE") {
             isOpen = false
         }
+    }
+    
+    func removeRows(at offsets: IndexSet) {
+        basket.basketProducts.remove(atOffsets: offsets)
     }
 }
 

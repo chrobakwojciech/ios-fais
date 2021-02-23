@@ -22,7 +22,6 @@ struct ProductView: View {
     var body: some View {
         VStack() {
             Text(self.product.name)
-            Text(String(basket.basketProducts.count))
             Spacer()
             Picker("Quantity:", selection: $quantity) {
                 ForEach(Array(stride(from: 1, to: 20, by: 1)), id: \.self) { index in

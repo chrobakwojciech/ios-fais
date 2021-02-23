@@ -13,4 +13,10 @@ class Basket: ObservableObject {
     func addProduct(product: Product, quantity: Int) {
         basketProducts.append(contentsOf: repeatElement(product, count: quantity))
     }
+    
+    func removeProduct(id: Int) {
+        basketProducts.remove(at: id)
+    }
+    
+    
 }
